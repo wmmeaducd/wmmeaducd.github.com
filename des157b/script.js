@@ -60,23 +60,16 @@ appHeight();
 			event.target.removeAttribute('class');
         });
 
-        
-    });
-    topListSpans.forEach(function(eachSpan){
-        eachSpan.addEventListener('touchstart', function(event){
+        eachItem.addEventListener('touchstart', function(event){
             event.preventDefault();
-            const parentEl = event.target.parentNode;
-            console.log(parentEl);
+            console.log(event.target);
             if(event.target.hasAttribute('class')){
 				event.target.removeAttribute('class');
-                parentEl.removeAttribute('class');
 			} else {
-                topListSpans.forEach(function(eachItem){
+                topListItems.forEach(function(eachItem){
                     eachItem.removeAttribute('class');
-                    parentEl.removeAttribute('class');
                 });
                 event.target.className = 'selected';
-                parentEl.className = "hover";
             }
         });
     });
