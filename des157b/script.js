@@ -1,3 +1,12 @@
+
+// This is a fix for height on iOS
+const appHeight = () => {
+    const doc = document.documentElement;
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+}
+window.addEventListener('resize', appHeight);
+appHeight();
+
 (function(){
     'use strict';
     let state = 0;
@@ -9,6 +18,7 @@
     const videoFiles = ['video/vid01b.mp4', 'video/vid02c.mp4'];
     const btnText = ['take shelter', 'go traveling'];
     const titleTxt = ['a sweet memory', 'shelter from the storm'];
+    const topListItems = document.querySelectorAll('#projects ul > li');
     const overlay = document.createElement('div');
     overlay.id = "overlay";
     body.appendChild(overlay);
@@ -37,11 +47,29 @@
             video.play();
         }, 1000);
     }
+
+    topListItems.forEach(function(eachItem){
+        eachItem.addEventListener('mouseenter', function(event){
+            event.preventDefault(); //needed to keep other events from registering
+			event.target.className = 'hover';
+        });
+
+        eachItem.addEventListener('mouseleave', function(event){
+            event.preventDefault(); //needed to keep other events from registering
+			event.target.removeAttribute('class');
+        });
+
+        eachItem.addEventListener('touchstart', function(event){
+            event.preventDefault();
+            if(event.target.hasAttribute('class')){
+				event.target.removeAttribute('class');
+			} else {
+                topListItems.forEach(function(eachItem){
+                    eachItem.removeAttribute('class');
+                });
+                event.target.className = 'hover';
+            }
+        });
+    });
 })();
 
-const appHeight = () => {
-    const doc = document.documentElement;
-    doc.style.setProperty('--app-height', `${window.innerHeight}px`);
-}
-window.addEventListener('resize', appHeight);
-appHeight();

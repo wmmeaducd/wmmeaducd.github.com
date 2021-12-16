@@ -120,13 +120,25 @@ header h2 {
     width: 100%;
 }
 
-#projects ul > li:hover span {
+/* #projects ul > li:hover span {
     background: cornsilk;
     color:deepskyblue;
     z-index: 10;
 }
 
 #projects ul > li:hover ul {
+    bottom: 50px;
+    transition: bottom 1000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    background: rgba(0,0,0,0.5);
+} */
+
+#projects ul > li.hover span {
+    background: cornsilk;
+    color:deepskyblue;
+    z-index: 10;
+}
+
+#projects ul > li.hover ul {
     bottom: 50px;
     transition: bottom 1000ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
     background: rgba(0,0,0,0.5);
