@@ -19,6 +19,7 @@ appHeight();
     const btnText = ['take shelter', 'go traveling'];
     const titleTxt = ['a sweet memory', 'shelter from the storm'];
     const topListItems = document.querySelectorAll('#projects ul > li');
+    const topListSpans = document.querySelector('#projects > ul > li > span');
     const overlay = document.createElement('div');
     overlay.id = "overlay";
     body.appendChild(overlay);
@@ -59,15 +60,23 @@ appHeight();
 			event.target.removeAttribute('class');
         });
 
-        eachItem.addEventListener('touchstart', function(event){
+        
+    });
+    topListSpans.forEach(function(eachSpan){
+        eachSpan.addEventListener('touchstart', function(event){
             event.preventDefault();
+            const parentEl = event.target.parentNode;
+            console.log(parentEl);
             if(event.target.hasAttribute('class')){
 				event.target.removeAttribute('class');
+                parentEl.removeAttribute('class');
 			} else {
-                topListItems.forEach(function(eachItem){
+                topListSpans.forEach(function(eachItem){
                     eachItem.removeAttribute('class');
+                    parentEl.removeAttribute('class');
                 });
                 event.target.className = 'selected';
+                parentEl.className = "hover";
             }
         });
     });
