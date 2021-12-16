@@ -62,7 +62,8 @@ appHeight();
 
         eachItem.addEventListener('touchstart', function(event){
             event.preventDefault();
-            console.log(event.target);
+            const thisItem = this;
+            console.log(thisItem);
             if(event.target.hasAttribute('class')){
 				event.target.removeAttribute('class');
 			} else {
