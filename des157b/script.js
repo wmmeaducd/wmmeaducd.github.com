@@ -61,15 +61,18 @@ appHeight();
         });
 
         eachItem.addEventListener('touchstart', function(event){
-            event.preventDefault();
-            const thisItem = this;
-            //console.log(thisItem);
+            event.preventDefault();//needed to keep other events from registering
+            const thisItem = this; //needed to grab the correct element. Event.target was not working
+
+            //removes the class if you are tapping to close the menu
             if(thisItem.hasAttribute('class')){
 				thisItem.removeAttribute('class');
 			} else {
+                //Makes sure all the menus are closed
                 topListItems.forEach(function(eachItem){
                     eachItem.removeAttribute('class');
                 });
+                // opens the menu that is closed, if it wasn't open.
                 thisItem.className = 'hover';
             }
         });
