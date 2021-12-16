@@ -61,13 +61,13 @@ appHeight();
 
         eachItem.addEventListener('touchstart', function(event){
             event.preventDefault();
-            if(event.target.parentNode.hasAttribute('class')){
-				event.target.parentNode.removeAttribute('class');
+            if(event.target.hasAttribute('class')){
+				event.target.removeAttribute('class');
 			} else {
                 topListItems.forEach(function(eachItem){
                     eachItem.removeAttribute('class');
                 });
-                event.target.parentNode.className = 'hover';
+                event.target.className = 'selected';
             }
         });
     });
