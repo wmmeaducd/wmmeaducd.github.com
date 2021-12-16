@@ -144,6 +144,12 @@ header h2 {
     background: rgba(0,0,0,0.5);
 }
 
+#projects ul > li > .selected {
+    background: cornsilk;
+    color:deepskyblue;
+    z-index: 10;
+}
+
 #projects > ul > li > ul > li {
     height: 50px;
     line-height: 50px;
