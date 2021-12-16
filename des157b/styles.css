@@ -8,13 +8,10 @@
     font-style: normal;
 }
 
-html {
-    height: -webkit-fill-available;
-}
-
 #page {
 	width:100vw;
 	height: 100vh;
+    height: -webkit-fill-available;
     position: relative;
 	overflow:hidden;
 }
